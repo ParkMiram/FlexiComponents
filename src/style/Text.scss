@@ -1,0 +1,86 @@
+@import "root";
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  .label,
+  .insideLabel {
+    font-size: 14px;
+    color: $black70;
+    font-weight: 500;
+  }
+  .textWrap {
+    height: $px40;
+    border-radius: $px16;
+    border: 2px solid $boxColor;
+    transition: .1s ease-in-out;
+    box-shadow: $boxShadow;
+    @include horizonCenter;
+    &:hover,
+    &:focus {
+      border-color: $black40;
+    }
+    &:focus-within {
+      border-color: $mainColor;
+      background-color: $white;
+      transition: .1s ease-in-out;
+    }
+    .textInput {
+      border: none;
+      flex: 1;
+      height: 100%;
+      outline: none;
+      padding: $px8 $px12;
+      background-color: transparent;
+    }
+    .delete {
+      width: 1rem;
+      height: 1rem;
+      border: none;
+      cursor: pointer;
+      margin-right: $px8;
+      background-color: transparent;
+      opacity: .7;
+      transition: .1s ease-in-out;
+      &:hover,
+      &:focus {
+        opacity: 1;
+        transition: .1s ease-in-out;
+      }
+      .deleteIcon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  // ======= setStyle =======
+  // outside
+  &.outside {
+    .label {
+      margin-bottom: $px8;
+    }
+  }
+  // outsideLeft
+  &.outsideLeft {
+    @include flexRowCenter;
+    .label {
+      margin-right: $px10;
+    }
+    .textWrap {
+      flex: 1;
+    }
+  }
+  // inside
+  &.inside {
+    .label {
+      margin-left: $px15;
+      color: $black50;
+    }
+  }
+  // icon
+  &.icon {
+    .label {
+      margin-left: $px15;
+    }
+  }
+}
