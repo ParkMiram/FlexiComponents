@@ -1,0 +1,31 @@
+// color
+$mainColor: #25B317;
+$black: #000000;
+$black70: #262C31;
+$black60: #5A636A;
+$black50: #778088;
+$black40: #ADB4BA;
+$black30: #CCD1D7;
+$black20: #E6E8EB;
+$black10: #F2F4F5;
+// ---------------
+$white: #FFFFFF;
+$white10: #F8F8F8;
+// ---------------
+$boxColor: #D5D9E0;
+$boxShadow: 1px 1px 4px rgba(0 0 0 / 10%);
+
+// flex
+@mixin horizonCenter {
+  display: flex;
+  align-items: center;
+}
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flexRowCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
