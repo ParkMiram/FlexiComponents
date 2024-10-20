@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
 }
-.textContainer .textLabel {
+.textContainer .label,
+.textContainer .insideLabel {
   font-size: 14px;
   color: #262C31;
+  font-weight: 500;
 }
 .textContainer .textWrap {
   height: 2.5rem;
@@ -23,16 +25,12 @@
   background-color: #FFFFFF;
   transition: 0.1s ease-in-out;
 }
-.textContainer .textWrap:focus-within ~ .textLabel {
-  font-weight: bold;
-  color: #25B317;
-}
 .textContainer .textWrap .textInput {
   border: none;
-  width: 100%;
+  flex: 1;
   height: 100%;
   outline: none;
-  padding: 0.5rem 0.8rem;
+  padding: 0.5rem 0.75rem;
   background-color: transparent;
 }
 .textContainer .textWrap .delete {
@@ -53,7 +51,7 @@
   width: 100%;
   height: 100%;
 }
-.textContainer.outside .textLabel {
+.textContainer.outside .label {
   margin-bottom: 0.5rem;
 }
 .textContainer.outsideLeft {
@@ -61,11 +59,18 @@
   flex-direction: row;
   align-items: center;
 }
-.textContainer.outsideLeft .textLabel {
+.textContainer.outsideLeft .label {
   margin-right: 0.625rem;
 }
 .textContainer.outsideLeft .textWrap {
-  width: 100%;
+  flex: 1;
+}
+.textContainer.inside .label {
+  margin-left: 0.9375rem;
+  color: #778088;
+}
+.textContainer.icon .label {
+  margin-left: 0.9375rem;
 }
 
 /*# sourceMappingURL=Text.css.map */

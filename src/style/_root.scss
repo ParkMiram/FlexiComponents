@@ -15,6 +15,14 @@ $white10: #F8F8F8;
 $boxColor: #D5D9E0;
 $boxShadow: 1px 1px 4px rgba(0 0 0 / 10%);
 
+// rem
+$px40: 2.5rem;
+$px16: 1rem;
+$px15: .9375rem;
+$px12: .75rem;
+$px10: .625rem;
+$px8: .5rem;
+
 // flex
 @mixin horizonCenter {
   display: flex;

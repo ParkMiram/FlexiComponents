@@ -3,13 +3,15 @@
 .textContainer {
   display: flex;
   flex-direction: column;
-  .textLabel {
+  .label,
+  .insideLabel {
     font-size: 14px;
     color: $black70;
+    font-weight: 500;
   }
   .textWrap {
-    height: 2.5rem; // 40px
-    border-radius: 1rem; // 16px
+    height: $px40;
+    border-radius: $px16;
     border: 2px solid $boxColor;
     transition: .1s ease-in-out;
     box-shadow: $boxShadow;
@@ -22,17 +24,13 @@
       border-color: $mainColor;
       background-color: $white;
       transition: .1s ease-in-out;
-      & ~ .textLabel {
-        font-weight: bold;
-        color: $mainColor;
-      }
     }
     .textInput {
       border: none;
-      width: 100%;
+      flex: 1;
       height: 100%;
       outline: none;
-      padding: 0.5rem 0.8rem;
+      padding: $px8 $px12;
       background-color: transparent;
     }
     .delete {
@@ -40,7 +38,7 @@
       height: 1rem;
       border: none;
       cursor: pointer;
-      margin-right: .5rem; // 8px
+      margin-right: $px8;
       background-color: transparent;
       opacity: .7;
       transition: .1s ease-in-out;
@@ -58,18 +56,31 @@
   // ======= setStyle =======
   // outside
   &.outside {
-    .textLabel {
-      margin-bottom: .5rem; // 8px
+    .label {
+      margin-bottom: $px8;
     }
   }
   // outsideLeft
   &.outsideLeft {
     @include flexRowCenter;
-    .textLabel {
-      margin-right: .625rem; // 10px
+    .label {
+      margin-right: $px10;
     }
     .textWrap {
-      width: 100%;
+      flex: 1;
+    }
+  }
+  // inside
+  &.inside {
+    .label {
+      margin-left: $px15;
+      color: $black50;
+    }
+  }
+  // icon
+  &.icon {
+    .label {
+      margin-left: $px15;
     }
   }
 }
