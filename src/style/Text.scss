@@ -3,10 +3,9 @@
 .textContainer {
   display: flex;
   flex-direction: column;
-  .label,
-  .insideLabel {
+  .label {
     font-size: 14px;
-    color: $black70;
+    color: $black60;
     font-weight: 500;
   }
   .textWrap {
@@ -21,9 +20,14 @@
       border-color: $black40;
     }
     &:focus-within {
-      border-color: $mainColor;
       background-color: $white;
       transition: .1s ease-in-out;
+    }
+    // readOnly
+    &:has(.textInput:read-only),
+    &:has(.textInput:disabled) {
+      background-color: $black10;
+      border-color: $boxColor !important;
     }
     .textInput {
       border: none;
@@ -74,7 +78,6 @@
   &.inside {
     .label {
       margin-left: $px15;
-      color: $black50;
     }
   }
   // icon

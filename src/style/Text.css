@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
 }
-.textContainer .label,
-.textContainer .insideLabel {
+.textContainer .label {
   font-size: 14px;
-  color: #262C31;
+  color: #5A636A;
   font-weight: 500;
 }
 .textContainer .textWrap {
@@ -21,9 +20,12 @@
   border-color: #ADB4BA;
 }
 .textContainer .textWrap:focus-within {
-  border-color: #25B317;
   background-color: #FFFFFF;
   transition: 0.1s ease-in-out;
+}
+.textContainer .textWrap:has(.textInput:read-only), .textContainer .textWrap:has(.textInput:disabled) {
+  background-color: #F2F4F5;
+  border-color: #D5D9E0 !important;
 }
 .textContainer .textWrap .textInput {
   border: none;
@@ -67,7 +69,6 @@
 }
 .textContainer.inside .label {
   margin-left: 0.9375rem;
-  color: #778088;
 }
 .textContainer.icon .label {
   margin-left: 0.9375rem;
