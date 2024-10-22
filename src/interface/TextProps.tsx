@@ -2,6 +2,7 @@ import React from "react";
 
 interface TextProps extends React.InputHTMLAttributes<HTMLInputElement> {
     value: string; // input 값
+    label?: string; // label
     borderColor?: string; // border 색상 지정
     setStyle?: string; // input 스타일
     onDelete?: () => void; // 초기화 버튼 활성화

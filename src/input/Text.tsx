@@ -3,7 +3,7 @@ import '../style/Text.css';
 import basic from '../assets/images/icon.svg';
 import TextProps from "../interface/TextProps";
 
-const Text: React.FC<TextProps> = ({value, borderColor, setStyle, onDelete, setIcon, disabled, readOnly, ...props}) => {
+const Text: React.FC<TextProps> = ({value, label, borderColor, setStyle, onDelete, setIcon, disabled, readOnly, ...props}) => {
 
     // borderColor
     const handleFocus = (event: React.FocusEvent<HTMLDivElement>) => {
@@ -15,6 +15,7 @@ const Text: React.FC<TextProps> = ({value, borderColor, setStyle, onDelete, setI
             event.currentTarget.style.borderColor = "";
         }
     };
+
     const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
         event.currentTarget.style.borderColor = "";
         event.currentTarget.style.transition = "0.1s ease-in-out";
@@ -48,7 +49,7 @@ const Text: React.FC<TextProps> = ({value, borderColor, setStyle, onDelete, setI
             <div className={`textContainer ${appliedStyle}`}>
                 {
                     appliedStyle === "outside" || appliedStyle === "outsideLeft" ?
-                        <label className="label">Text</label>
+                        <label className="label">{label}</label>
                         : <></>
                 }
                 <div
@@ -58,7 +59,7 @@ const Text: React.FC<TextProps> = ({value, borderColor, setStyle, onDelete, setI
                 >
                     {
                         appliedStyle === "inside" ?
-                        <label className="label">Text</label>
+                        <label className="label">{label}</label>
                         : appliedStyle === "icon" ?
                             <img
                                 className="label"
