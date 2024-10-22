@@ -1,0 +1,33 @@
+@import "../root";
+
+.selectWrap {
+  cursor: pointer;
+  flex-direction: column;
+  overflow: hidden;
+  &.active {
+    transition: height .2s ease;
+  }
+  .selected {
+    width: 100%;
+    @include horizonCenter;
+    .option {
+      flex: 1;
+      padding: $px8 $px12;
+      background-color: transparent;
+      font-weight: 500;
+    }
+    .open {
+      margin-right: $px12;
+    }
+  }
+  .dataList {
+    width: 100%;
+    .list {
+      padding: $px8 $px12;
+      font-weight: 500;
+      &:hover {
+        background-color: $black10;
+      }
+    }
+  }
+}
