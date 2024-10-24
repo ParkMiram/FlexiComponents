@@ -1,7 +1,9 @@
 import React, {useRef} from "react";
-import '../style/Text.css';
-import basic from '../assets/images/icon.svg';
-import TextProps from "../interface/TextProps";
+import '../../style/input/input_common.css';
+import '../../style/input/text.css';
+import TextProps from "../../interface/TextProps";
+import basic from '../../assets/images/icon.svg';
+import init from '../../assets/images/delete.svg';
 
 const Text: React.FC<TextProps> = ({value, label, borderColor, setStyle, onDelete, setIcon, disabled, readOnly, ...props}) => {
 
@@ -84,12 +86,7 @@ const Text: React.FC<TextProps> = ({value, label, borderColor, setStyle, onDelet
                                         className="delete"
                                         onClick={handleButtonClickFocusInput}
                                     >
-                                        <svg className="deleteIcon" viewBox="0 0 14 14" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="7" cy="7" r="7" fill="#5A636A"/>
-                                            <path d="M4.66663 4.66667L9.33329 9.33334" stroke="white" strokeLinecap="round"/>
-                                            <path d="M9.33337 4.66667L4.66671 9.33334" stroke="white" strokeLinecap="round"/>
-                                        </svg>
+                                        <img src={init} alt="delete" />
                                     </button>
                                 : <></>
                             : <></>

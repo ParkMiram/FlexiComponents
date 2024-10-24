@@ -8,4 +8,12 @@ body {
   margin: 1rem;
 }
 
+li {
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
 /*# sourceMappingURL=common.css.map */
