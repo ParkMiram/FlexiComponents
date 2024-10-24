@@ -48,16 +48,35 @@
       flex: 1;
     }
   }
-  // inside
-  &.inside {
+  // inside, icon
+  &.inside,
+  &.icon {
     .label {
       margin-left: $px15;
+    }
+    // select
+    .selectContainer {
+      .selectWrap {
+        align-items: normal;
+        .label {
+          margin-right: $px15;
+          @include horizonCenter;
+        }
+        .listWrap {
+          border-left: 1px solid $black20;
+        }
+      }
     }
   }
   // icon
   &.icon {
-    .label {
-      margin-left: $px15;
+    // select
+    .selectContainer {
+      .selectWrap {
+        .label {
+          width: $px20;
+        }
+      }
     }
   }
 }

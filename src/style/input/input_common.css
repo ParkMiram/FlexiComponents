@@ -47,11 +47,22 @@
 .textContainer.outsideLeft .textWrap {
   flex: 1;
 }
-.textContainer.inside .label {
+.textContainer.inside .label, .textContainer.icon .label {
   margin-left: 0.9375rem;
 }
-.textContainer.icon .label {
-  margin-left: 0.9375rem;
+.textContainer.inside .selectContainer .selectWrap, .textContainer.icon .selectContainer .selectWrap {
+  align-items: normal;
+}
+.textContainer.inside .selectContainer .selectWrap .label, .textContainer.icon .selectContainer .selectWrap .label {
+  margin-right: 0.9375rem;
+  display: flex;
+  align-items: center;
+}
+.textContainer.inside .selectContainer .selectWrap .listWrap, .textContainer.icon .selectContainer .selectWrap .listWrap {
+  border-left: 1px solid #E6E8EB;
+}
+.textContainer.icon .selectContainer .selectWrap .label {
+  width: 1.25rem;
 }
 
 /*# sourceMappingURL=input_common.css.map */

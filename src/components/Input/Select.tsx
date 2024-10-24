@@ -3,8 +3,9 @@ import '../../style/input/input_common.css';
 import '../../style/input/select.css';
 import SelectProps from "../../interface/SelectProps";
 import open from '../../assets/images/open.svg';
+import basic from "../../assets/images/icon.svg";
 
-const Select: React.FC<SelectProps> = ({ defaultValue, label, setStyle, ...props }) => {
+const Select: React.FC<SelectProps> = ({ defaultValue, setDefaultValue, data,  label, setStyle, borderColor, setIcon, ...props }) => {
 
     // state
     const [toggle, setToggle] = useState(false);
@@ -15,22 +16,22 @@ const Select: React.FC<SelectProps> = ({ defaultValue, label, setStyle, ...props
         setToggle(newToggle);
         animationToggle(newToggle); // 새로운 토글 값을 인자로 전달
     }
-
+    // animation
     const animationToggle = (isOpen: boolean) => {
         const list = document.getElementById('list');
-        if (list) {
+        const dataList = document.getElementById('dataList');
+        const selected = document.getElementById('selected');
+        if (list && dataList && selected) {
             if (isOpen) {
-                // 다음 프레임에서 높이 계산
                 requestAnimationFrame(() => {
-                    const height = list.scrollHeight + 4 + 'px'; // 실제 높이 계산
-                    list.style.height = height; // 높이를 애니메이션으로 변경
+                    // 4 = border 위, 아래 px 값
+                    list.style.height = String(selected.offsetHeight + 4 + dataList.offsetHeight) + 'px';
+                    list.style.borderColor = `${borderColor}`;
                 });
-                // setTimeout(() => {
-                //     list.style.height = height;
-                // }, 0);
             } else {
                 setTimeout(() => {
                     list.style.height = '2.5rem';
+                    list.style.borderColor = '';
                 }, 0);
             }
         }
@@ -46,6 +47,15 @@ const Select: React.FC<SelectProps> = ({ defaultValue, label, setStyle, ...props
         }
     }
 
+    // setIcon
+    const iconSrc = setIcon ? setIcon[0] : basic; // 기본 아이콘 설정
+    const iconAlt = setIcon ? setIcon[1] : '기본 아이콘'; // 기본 텍스트 설정
+
+    // option click
+    const handleSelectOption = (id: number, option: string): void => {
+        setDefaultValue({ id: id, option: option });
+    }
+
     return (
         <>
             <div className={`textContainer ${appliedStyle}`}>
@@ -54,29 +64,55 @@ const Select: React.FC<SelectProps> = ({ defaultValue, label, setStyle, ...props
                         <label className="label">{label}</label>
                         : <></>
                 }
-                <div
-                    id="list"
-                    className={`selectWrap ${toggle ? "active" : ""}`}
-                    onClick={handleToggle}
-                >
-                    <div className="selected">
-                        <p className="option">None</p>
-                        <img src={open} alt="open" className="open" />
+                <div className="selectContainer">
+                    <div
+                        id="list"
+                        className={`selectWrap ${toggle ? "active" : ""}`}
+                        onClick={handleToggle}
+                        style={appliedStyle === "outside" || appliedStyle === "outsideLeft" ? { flexDirection: "column" } : {}}
+                    >
+                        {
+                            appliedStyle === "inside" ?
+                                <label className="label">{label}</label>
+                                : appliedStyle === "icon" ?
+                                    <img
+                                        className="label"
+                                        src={iconSrc}
+                                        alt={iconAlt}
+                                    />
+                                    : <></>
+                        }
+                        <div className="listWrap">
+                            <div id="selected" className="selected">
+                                <p className="option">{defaultValue?.option}</p>
+                                <img src={open} alt="open" className="open" />
+                            </div>
+                            <ul id="dataList" className="dataList">
+                                <li
+                                    className={`list ${defaultValue?.id === 0 ? 'on' : ''}`}
+                                    onClick={() => handleSelectOption(0, 'None')}
+                                >
+                                    <p className="option">None</p>
+                                </li>
+                                {
+                                    data ? data.map((item) => {
+                                            return (
+                                                <>
+                                                    <li
+                                                        key={item.id}
+                                                        className={`list ${defaultValue?.id === item.id ? 'on' : ''}`}
+                                                        onClick={() => handleSelectOption(item.id, item.option)}
+                                                    >
+                                                        <p className="option">{item.option}</p>
+                                                    </li>
+                                                </>
+                                            )
+                                        })
+                                        : <></>
+                                }
+                            </ul>
+                        </div>
                     </div>
-                    <ul className="dataList">
-                        <li className="list">
-                            <p className="option">엄홍광</p>
-                        </li>
-                        <li className="list">
-                            <p className="option">강지원</p>
-                        </li>
-                        <li className="list">
-                            <p className="option">김민수</p>
-                        </li>
-                        <li className="list">
-                            <p className="option">박미람</p>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </>

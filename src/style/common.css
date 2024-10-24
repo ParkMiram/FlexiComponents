@@ -12,4 +12,8 @@ li {
   list-style: none;
 }
 
+.flex {
+  display: flex;
+}
+
 /*# sourceMappingURL=common.css.map */
