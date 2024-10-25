@@ -3,6 +3,13 @@
 .textContainer {
   display: flex;
   flex-direction: column;
+  &:has(.selectContainer) {
+    height: $px40;
+  }
+  &:has(.active) {
+    position: relative;
+    z-index: 1;
+  }
   .label {
     font-size: 14px;
     color: $black60;
