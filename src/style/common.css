@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1rem;
+}
+
+li {
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
+/*# sourceMappingURL=common.css.map */
