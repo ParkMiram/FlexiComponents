@@ -2,6 +2,13 @@
   display: flex;
   flex-direction: column;
 }
+.textContainer:has(.selectContainer) {
+  height: 2.5rem;
+}
+.textContainer:has(.active) {
+  position: relative;
+  z-index: 1;
+}
 .textContainer .label {
   font-size: 14px;
   color: #5A636A;
